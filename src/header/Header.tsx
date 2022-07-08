@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from '../context/Context'
 
 const Header = () => {
-  const [selectTheme, setSelectTheme] = useState<String>('one')
+   const { selectTheme, setSelectTheme } = useContext(DataContext)
+  console.log(selectTheme)
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectTheme(e.target.value)
+    if (setSelectTheme) {
+      setSelectTheme(e.target.value)
+    }
   }
   return (
     <header className={`header ${selectTheme === 'two' ? 'secondary-colors' : selectTheme === 'three' ? 'tertiary-colors' : 'main-colors'} `}>
