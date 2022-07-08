@@ -62,10 +62,21 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
+#### Customizing styling Radio buttons
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+The design has a singular circle for the radio button, whereas the default button has something like a nested circle inside another circle. To accomplish that i used the following tutorial.
+[Custom styled radio buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/). See the example below. The `appearance: none` will remove the default radio button styles then the styles below that will create the visual custom radio button.
 
-To see how you can add code snippets, see below:
+```css 
+input[type="radio"] {
+  opacity: 0;
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  background: var(--main-eq-bg-color);
+  border-radius: 50%;
+}
+```
 
 ```html
 <h1>Some HTML code I'm proud of</h1>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { DataContext } from '../context/Context'
 
 const Header = () => {
-   const { selectTheme, setSelectTheme } = useContext(DataContext)
+  const { selectTheme, setSelectTheme } = useContext(DataContext)
   console.log(selectTheme)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -11,7 +11,7 @@ const Header = () => {
     }
   }
   return (
-    <header className={`header ${selectTheme === 'two' ? 'secondary-colors' : selectTheme === 'three' ? 'tertiary-colors' : 'main-colors'} `}>
+    <header className={`header`}>
       <h1>Calc</h1>
       <fieldset className="theme-control" >
         <legend className="theme-header">theme</legend>

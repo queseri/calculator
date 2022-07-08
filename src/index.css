@@ -91,6 +91,7 @@ select {
   --main-reset-bg-color: hsla(225, 21%, 49%, 1);
   --main-btn-tx-color: hsla(221, 14%, 31%, 1);
   --main-btn-bg-color: hsla(31, 24%, 89%, 1);
+  --main-radio-bg-color: hsla(223, 31%, 20%, 1);
 
   --secondary-bg-color: hsla(0, 0%, 90%, 1);
   --secondary-tx-color: hsla(60, 10%, 19%, 1);
@@ -109,6 +110,7 @@ select {
 }
 
 body {
+  font-family: 'League Spartan', sans-serif;
   background-color: var(--main-bg-color);
   color: var(--main-tx-color);
 }
@@ -120,12 +122,19 @@ body {
 
 .secondary-colors {
   background-color: var(--secondary-bg-color);
-  color: var(--secondary-tx-color);
+  color: var(--secondary-tx-color);  
+}
+
+.secondary-colors input[type="radio"] {
+  background-color: var(--secondary-eq-bg-color);
 }
 
 .tertiary-colors {
   background-color: var(--tertiary-bg-color);
   color: var(--tertiary-tx-color);
+}
+.tertiary-colors input[type="radio"] {
+  background-color: var(--tertiary-eq-bg-color);
 }
 
 .wrapper {
@@ -155,7 +164,7 @@ body {
   content: "";
   width: 55%;
   height: 25px;
-  background: red;
+  background: var(--main-radio-bg-color);
   z-index: -1;
   bottom: 8%;
   left: 39%;
@@ -178,6 +187,11 @@ legend {
 
 input[type="radio"] {
   opacity: 0;
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  background: var(--main-eq-bg-color);
+  border-radius: 50%;
 }
 
 input[type="radio"]:checked {
