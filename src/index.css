@@ -85,6 +85,7 @@ select {
 }
 
 :root {
+
   --main-bg-color: hsla(222, 26%, 31%, 1);
   --main-tx-color: hsla(0, 0%, 100%, 1);
   --main-eq-bg-color: hsla(6, 63%, 50%, 1);
@@ -92,20 +93,37 @@ select {
   --main-btn-tx-color: hsla(221, 14%, 31%, 1);
   --main-btn-bg-color: hsla(31, 24%, 89%, 1);
   --main-radio-bg-color: hsla(223, 31%, 20%, 1);
+  --main-display-bg-color: hsla(224, 36%, 15%, 1);
+  --main-grid-bg-color: hsla(224, 30%, 21%, 1);
+  --main-box-shadow: 0px 4px 0px 0px hsla(27, 15%, 65%, 1);
+  --main-del-box-shadow: 0px 4px 0px 0px hsla(224, 28%, 35%, 1);
+  --main-eq-box-shadow: 0px 4px 0px 0px hsla(6, 70%, 34%, 1);
 
   --secondary-bg-color: hsla(0, 0%, 90%, 1);
   --secondary-tx-color: hsla(60, 10%, 19%, 1);
   --secondary-eq-bg-color: hsla(25, 98%, 40%, 1);
   --secondary-reset-bg-color: hsla(184, 42%, 37%, 1);
-  --secondary-btn-bg-color: hsla(60, 10%, 19%, 1);
-  --secondary-btn-tx-color: hsla(45, 7%, 89%, 1);
+  --secondary-btn-bg-color: hsla(45, 7%, 89%, 1);
+  --secondary-btn-tx-color: hsla(60, 10%, 19%, 1);
+  --secondary-display-bg-color: hsla(0, 0%, 93%, 1);
+  --secondary-grid-bg-color: hsla(0, 5%, 81%, 1);
+  --secondary-box-shadow: 0px 4px 0px 0px hsla(35, 11%, 61%, 1);
+  --secondary-del-box-shadow: 0px 4px 0px 0px hsla(185, 58%, 25%, 1);
+  --secondary-eq-box-shadow: 0px 4px 0px 0px hsla(25, 99%, 27%, 1);
 
   --tertiary-bg-color: hsla(268, 75%, 9%, 1);
   --tertiary-tx-color: hsla(52, 100%, 62%, 1);
   --tertiary-eq-bg-color: hsla(176, 100%, 44%, 1);
+  --tertiary-eq-tx-color: hsla(198, 20%, 13%, 1);
   --tertiary-reset-bg-color: hsla(281, 89%, 26%, 1);
   --tertiary-btn-bg-color: hsla(268, 47%, 21%, 1);
   --tertiary-btn-tx-color: hsla(52, 100%, 62%, 1);
+  --tertiary-display-bg-color: hsla(268, 71%, 12%, 1);
+  /*  --tertiary-grid-bg-color: hsla(268, 71%, 12%, 1); */
+  --tertiary-box-shadow: 0px 4px 0px 0px hsla(290, 70%, 36%, 1);
+  --tertiary-del-box-shadow: 0px 4px 0px 0px hsla(285, 91%, 52%, 1);
+  --tertiary-eq-box-shadow: 0px 4px 0px 0px hsla(177, 92%, 70%, 1);
+
 
 }
 
@@ -115,26 +133,31 @@ body {
   color: var(--main-tx-color);
 }
 
+.app {
+  text-align: center;
+  width: 100%;
+  padding: 1.5rem;
+  max-width: 33.75rem;
+}
+
+.border-radius {
+  border-radius: 10px;
+}
+
+/**************************************/
+/*************DEFAULT COLORS***********/
+/**************************************/
 .main-colors {
   background-color: var(--main-bg-color);
   color: var(--main-tx-color);
 }
 
-.secondary-colors {
-  background-color: var(--secondary-bg-color);
-  color: var(--secondary-tx-color);  
+.main-colors.display {
+  background-color: var(--main-display-bg-color);
 }
 
-.secondary-colors input[type="radio"] {
-  background-color: var(--secondary-eq-bg-color);
-}
-
-.tertiary-colors {
-  background-color: var(--tertiary-bg-color);
-  color: var(--tertiary-tx-color);
-}
-.tertiary-colors input[type="radio"] {
-  background-color: var(--tertiary-eq-bg-color);
+.main-colors.grid {
+  background-color: var(--main-grid-bg-color);
 }
 
 .wrapper {
@@ -157,17 +180,18 @@ body {
   z-index: 2;
   gap: 1.5rem;
   border: none;
+  padding-inline: 0;
 }
 
 .theme-control::before {
   position: absolute;
   content: "";
-  width: 55%;
+  width: 65%;
   height: 25px;
   background: var(--main-radio-bg-color);
   z-index: -1;
   bottom: 8%;
-  left: 39%;
+  left: 37%;
   border-radius: 20px;
 }
 
@@ -196,4 +220,144 @@ input[type="radio"] {
 
 input[type="radio"]:checked {
   opacity: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  padding-block: .9rem;
+  border: none;
+  background-color: var(--main-btn-bg-color);
+  box-shadow: var(--main-box-shadow);
+  border-radius: 5px;
+  z-index: 20;
+  position: relative;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.btn:nth-child(4),
+.btn:nth-child(17) {
+  background-color: var(--main-reset-bg-color);
+  color: var(--main-tx-color);
+  box-shadow: var(--main-del-box-shadow);
+}
+
+.btn:last-child {
+  background-color: var(--main-eq-bg-color);
+  color: var(--main-tx-color);
+  box-shadow: var(--main-eq-box-shadow);
+}
+
+.double-size:nth-child(odd) {
+  grid-area: 5/1/5/3;
+}
+
+.double-size:last-child {
+  grid-area: 5/3/5/5;
+}
+
+.display {
+  padding: 1.5rem;
+  text-align: right;
+  margin-block: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/**************************************/
+/***********SECONDARY COLORS***********/
+/**************************************/
+.secondary-colors {
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-tx-color);
+}
+
+.secondary-colors .theme-control::before {
+  background-color: var(--secondary-grid-bg-color);
+}
+
+.secondary-colors input[type="radio"] {
+  background-color: var(--secondary-eq-bg-color);
+}
+
+.secondary-colors.display {
+  background-color: var(--secondary-display-bg-color);
+  color: var(--secondary-tx-color);
+}
+
+.secondary-colors.grid {
+  background-color: var(--secondary-grid-bg-color);
+  color: var(--secondary-tx-color);
+}
+
+.secondary-colors .btn {
+  background-color: var(--secondary-btn-bg-color);
+  color: var(--secondary-tx-color);
+}
+
+.secondary-colors .btn:nth-child(4),
+.secondary-colors .btn:nth-child(17) {
+  background-color: var(--secondary-reset-bg-color);
+  color: var(--main-tx-color);
+  box-shadow: var(--secondary-del-box-shadow);
+}
+
+.secondary-colors .btn:last-child {
+  background-color: var(--secondary-eq-bg-color);
+  box-shadow: var(--secondary-eq-box-shadow);
+  color: var(--main-tx-color);
+}
+
+/**************************************/
+/*************TERTIARY COLORS***********/
+/**************************************/
+.tertiary-colors {
+  background-color: var(--tertiary-bg-color);
+  color: var(--tertiary-tx-color);
+}
+
+.tertiary-colors .theme-control::before {
+  background-color: var(--tertiary-display-bg-color);
+}
+
+.tertiary-colors.display,
+.tertiary-colors.grid {
+  background-color: var(--tertiary-display-bg-color);
+  color: var(--tertiary-tx-color)
+}
+
+.tertiary-colors input[type="radio"] {
+  background-color: var(--tertiary-eq-bg-color);
+}
+
+.tertiary-colors .btn {
+  background-color: var(--tertiary-btn-bg-color);
+  color: var(--tertiary-btn-tx-color);
+  box-shadow: var(--tertiary-box-shadow);
+}
+
+.tertiary-colors .btn:nth-child(4),
+.tertiary-colors .btn:nth-child(17) {
+  background-color: var(--tertiary-reset-bg-color);
+  color: var(--main-tx-color);
+  box-shadow: var(--tertiary-del-box-shadow);
+}
+
+.tertiary-colors .btn:last-child {
+  background-color: var(--tertiary-eq-bg-color);
+  box-shadow: var(--tertiary-eq-box-shadow);
+  color: var(--tertiary-eq-tx-color);
 }
