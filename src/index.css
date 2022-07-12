@@ -186,12 +186,12 @@ body {
 .theme-control::before {
   position: absolute;
   content: "";
-  width: 65%;
+  width: 70%;
   height: 25px;
   background: var(--main-radio-bg-color);
   z-index: -1;
   bottom: 8%;
-  left: 37%;
+  left: 33%;
   border-radius: 20px;
 }
 
@@ -207,6 +207,13 @@ body {
 
 legend {
   display: contents;
+  font-weight: 700;
+  font-size: 0.75rem
+}
+
+.label {
+  font-weight: 700;
+  font-size: 0.75rem
 }
 
 input[type="radio"] {
@@ -275,6 +282,11 @@ input[type="radio"]:checked {
   margin-block: 1rem;
   font-size: 2.5rem;
   font-weight: 700;
+}
+
+.previousOperand {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 /**************************************/
