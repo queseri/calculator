@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { DataContext } from '../context/Context'
 import BtnNumbers from './BtnNumbers'
 import BtnOperator from './BtnOperator'
@@ -6,10 +6,10 @@ import BtnOperator from './BtnOperator'
 const Main = () => {
     const { selectTheme } = useContext(DataContext)
     const [currentOperand, setCurrentOperand] = useState<number>(0)
-    const [previousOperand, setPreviousOperand] = useState<number>(0)
-    const [calc, setCalc] = useState<boolean>(false)
-    const [newCalculations, setNewCalculations] = useState<boolean>(false)
-    const [result, setResult] = useState<number>(0)
+    // const [previousOperand, setPreviousOperand] = useState<number>(0)
+    //  const [calc, setCalc] = useState<boolean>(false)
+    //  const [newCalculations, setNewCalculations] = useState<boolean>(false)
+    //  const [result, setResult] = useState<number>(0)
     const [operator, setOperator] = useState<string>('+')
     const [display, setDisplay] = useState<string>('0')
 
@@ -20,66 +20,50 @@ const Main = () => {
         }
     }
 */
-    const handleClick = (id: number) => {
-        
-        if ((display === '0' && id === 0) || display.length > 12) {
-            return
-        } 
+    useEffect(() => {
 
-        if (display !== '0') {
-            setDisplay(display + id)
-        } else {
-            setDisplay(id.toString())
-        }
-      
-        if (calc === false) {           
-            setCurrentOperand(() => Number(display))
-        } else {           
-            setPreviousOperand(() => Number(display))
-        }
+    }, [currentOperand])
+
+    function handleClick(id: number) {
+        setDisplay(() => display + id)
+        setCurrentOperand(() => Number(display + id))
     }
 
-    const handleOps = (id: string) => {
-        console.log(id)
-        setCalc(true)
+    function handleOps(id: string) {
         setOperator(() => id)
-        operations()
+        //  operations()
     }
 
-    const operations = () => {
-        // setPreviousOperand(() => Number(previousOperand))
-        switch (operator) {
-            case '+':
-                // setOperator("+")
-                setResult(() => previousOperand + currentOperand)
-                setDisplay("")
-                break;
-            case '-':
-                // setOperator(() => "-")
-                setResult(() => currentOperand - previousOperand)
-                break;
-            case 'x':
-                setOperator("x")
-                setResult(() => currentOperand * previousOperand)
-                break;
-            case '/':
-                if (previousOperand !== 0) {
-                    setResult(() => currentOperand / previousOperand)
-                } else {
-                    setResult(() => NaN)
-                }
-                break;
-            case "=":
-                setNewCalculations(true)
-                //setCalc(false)
-                console.log(operator)
-                console.log(`the new calculations, ${newCalculations}`)
-                break;
-            default:
-                break;
+    /*
+        function operations() {
+            switch (operator) {
+                case '+':              
+                    setResult(() => previousOperand + currentOperand)
+                    setDisplay("")
+                    break;
+                case '-':
+                    setResult(() => currentOperand - previousOperand)
+                    break;
+                case 'x':
+                    setResult(() => currentOperand * previousOperand)
+                    break;
+                case '/':
+                    if (previousOperand !== 0) {
+                        setResult(() => currentOperand / previousOperand)
+                    } else {
+                        setResult(() => NaN)
+                    }
+                    break;
+                case "=":
+                   
+                    break;
+                default:
+                    break;
+            }
+           // setCalc(true)
         }
-    }
-
+    */
+   /*
     const checkOperator = () => {
         if (operator === '/' || operator === '+' || operator === '-' || operator === "x") {
             return true
@@ -87,7 +71,7 @@ const Main = () => {
             return false
         }
     }
-
+*/
     return (
         <main>
             <div className={`display border-radius ${selectTheme === 'two' ?
@@ -96,9 +80,9 @@ const Main = () => {
                     'tertiary-colors' :
                     'main-colors'}`}>
                 <div className='previousOperand'>
-                    {currentOperand.toString()} {checkOperator() ? operator : '+'}  {previousOperand}
+                    {operator}
                 </div>
-                <div className='current'>{display}</div>
+                <div className='current'>{currentOperand}</div>
             </div>
             <div className={`grid border-radius ${selectTheme === 'two' ?
                 'secondary-colors' :

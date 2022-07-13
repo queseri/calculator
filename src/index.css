@@ -285,8 +285,9 @@ input[type="radio"]:checked {
 }
 
 .previousOperand {
-  font-size: 1.5rem;
+  font-size: .75rem;
   font-weight: 500;
+  min-height: 1rem;
 }
 
 /**************************************/
