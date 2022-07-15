@@ -284,10 +284,10 @@ input[type="radio"]:checked {
   font-weight: 700;
 }
 
-.secondOperand {
+.secondDisplay {
   font-size: .75rem;
   font-weight: 500;
-  min-height: 1rem;
+  min-height: 1.5rem;
 }
 
 /**************************************/

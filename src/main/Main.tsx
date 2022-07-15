@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { DataContext } from '../context/Context'
+import BtnDecimal from './BtnDecimal'
 import BtnNumbers from './BtnNumbers'
 import BtnOperator from './BtnOperator'
 
@@ -21,7 +22,7 @@ const Main = () => {
         if (showResult) {
             setResult(() => 0)
             setShowResult(() => false)
-           // clearCalculations();
+            // clearCalculations();
         }
         // display => number to be displayed on the screen. A click on a number button will 
         // add another number to the display. display is a string.
@@ -49,10 +50,27 @@ const Main = () => {
         }
         if (calc) {
             setCalc(calc => !calc);
+            operations();
+            clearCalculations();
+        } else {
+            return
         }
 
-        operations();
-        clearCalculations();
+    }
+
+    const handleDecimal = (id: string) => {
+        console.log(id)
+        if (display.indexOf('.') === -1) {
+            setDisplay(() => display + id)
+            if (!calc) {
+                setFirstOperand(() => Number(display + id))
+            } else {
+                setSecondOperand(() => Number(display + id))
+            }
+        } else {
+            return
+        }
+
     }
 
     function clearCalculations() {
@@ -97,7 +115,7 @@ const Main = () => {
                 selectTheme === 'three' ?
                     'tertiary-colors' :
                     'main-colors'}`}>
-                <div className='secondOperand'>
+                <div className='secondDisplay'>
                     {!calc ? "" : firstOperand + selectOperator + secondOperand}
                 </div>
                 <div className='current'>{calc ? secondOperand : showResult ? result : firstOperand}</div>
@@ -119,7 +137,7 @@ const Main = () => {
                 <BtnNumbers num={2} handleClick={() => handleClick(2)} />
                 <BtnNumbers num={3} handleClick={() => handleClick(3)} />
                 <BtnOperator operator="-" doubleSize={false} handleOps={() => handleOps("-")} />
-                <BtnOperator operator="." doubleSize={false} handleOps={() => handleOps(".")} />
+                <BtnDecimal operator="." doubleSize={false} handleDecimal={() => handleDecimal(".")} />
                 <BtnNumbers num={0} handleClick={() => handleClick(0)} />
                 <BtnOperator operator="/" doubleSize={false} handleOps={() => handleOps("/")} />
                 <BtnOperator operator="x" doubleSize={false} handleOps={() => handleOps("x")} />
