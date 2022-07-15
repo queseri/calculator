@@ -5,7 +5,7 @@ interface numberProps {
 }
 const BtnNumbers = ({ num, handleClick }: numberProps) => {
     return (
-        <button className="btn numbers" onClick={(event) => handleClick(event)}>
+        <button className="btn numbers" onClick={handleClick}>
             {num}
         </button>
     )

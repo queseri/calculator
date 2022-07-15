@@ -3,8 +3,7 @@ import { DataContext } from '../context/Context'
 
 const Header = () => {
   const { selectTheme, setSelectTheme } = useContext(DataContext)
-  console.log(selectTheme)
-
+  
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (setSelectTheme) {
       setSelectTheme(e.target.value)

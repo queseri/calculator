@@ -1,77 +1,95 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { DataContext } from '../context/Context'
 import BtnNumbers from './BtnNumbers'
 import BtnOperator from './BtnOperator'
 
 const Main = () => {
     const { selectTheme } = useContext(DataContext)
-    const [currentOperand, setCurrentOperand] = useState<number>(0)
-    // const [previousOperand, setPreviousOperand] = useState<number>(0)
-    //  const [calc, setCalc] = useState<boolean>(false)
-    //  const [newCalculations, setNewCalculations] = useState<boolean>(false)
-    //  const [result, setResult] = useState<number>(0)
+    const [firstOperand, setFirstOperand] = useState<number>(0)
+    const [secondOperand, setSecondOperand] = useState<number>(0)
+    const [calc, setCalc] = useState<boolean>(false)
+    const [selectOperator, setSelectOperator] = useState<string>('')
+    const [result, setResult] = useState<number>(0)
     const [operator, setOperator] = useState<string>('+')
     const [display, setDisplay] = useState<string>('0')
-
-    /*
-    const checkLeadingZeroes = (operand: number, setOperand: (arg0: () => number) => void) => {
-        if (operand.toString().length > 1 && (String(operand)[0] === '0')) {
-            setOperand(() => Number(String(operand).substring(1)))
-        }
-    }
-*/
-    useEffect(() => {
-
-    }, [currentOperand])
+    const [showResult, setShowResult] = useState<boolean>(false)
 
     function handleClick(id: number) {
+        // the screen will show either the result of calculation when showResult is true or
+        // the number being entered when showResult is false. Hence at start showResult is false
+        console.log(`calculations has been set to 1: ${calc}`)
+        if (showResult) {
+            setResult(() => 0)
+            setShowResult(() => false)
+           // clearCalculations();
+        }
+        // display => number to be displayed on the screen. A click on a number button will 
+        // add another number to the display. display is a string.
         setDisplay(() => display + id)
-        setCurrentOperand(() => Number(display + id))
-    }
-
-    function handleOps(id: string) {
-        setOperator(() => id)
-        //  operations()
-    }
-
-    /*
-        function operations() {
-            switch (operator) {
-                case '+':              
-                    setResult(() => previousOperand + currentOperand)
-                    setDisplay("")
-                    break;
-                case '-':
-                    setResult(() => currentOperand - previousOperand)
-                    break;
-                case 'x':
-                    setResult(() => currentOperand * previousOperand)
-                    break;
-                case '/':
-                    if (previousOperand !== 0) {
-                        setResult(() => currentOperand / previousOperand)
-                    } else {
-                        setResult(() => NaN)
-                    }
-                    break;
-                case "=":
-                   
-                    break;
-                default:
-                    break;
-            }
-           // setCalc(true)
-        }
-    */
-   /*
-    const checkOperator = () => {
-        if (operator === '/' || operator === '+' || operator === '-' || operator === "x") {
-            return true
+        // calc is false at the start, any numbers entered when calc is false will be added to the
+        // string display - converted to a number by setFirstOperand. When calc is true - triggered by
+        // a click on any of the operators, then the collection of numbers will become secondOperand
+        if (!calc) {
+            setFirstOperand(() => Number(display + id))
         } else {
-            return false
+            setSecondOperand(() => Number(display + id))
         }
     }
-*/
+
+    const handleOps = (id: string) => {
+        setOperator(() => id);
+        setSelectOperator(() => id);
+        setDisplay(() => "");
+        setCalc(() => true);
+    }
+
+    const handleResult = () => {
+        if (!showResult) {
+            setShowResult(showResult => !showResult);
+        }
+        if (calc) {
+            setCalc(calc => !calc);
+        }
+
+        operations();
+        clearCalculations();
+    }
+
+    function clearCalculations() {
+        // reset the display (screen captured number), first and second number
+        // so that new calculations can be entered without appending to previous data
+        setDisplay(() => "");
+        setFirstOperand(() => 0);
+        setSecondOperand(() => 0);
+    }
+
+    function operations() {
+        console.log(`calculations has been set to 2: ${calc}`)
+        console.log(` ${firstOperand}: ${operator} ${secondOperand} = ${result}`)
+        switch (operator) {
+            case '+':
+                setResult(() => secondOperand + firstOperand);
+                console.log(result)
+                break;
+            case '-':
+                setResult(() => firstOperand - secondOperand);
+                break;
+            case 'x':
+                setResult(() => firstOperand * secondOperand)
+                break;
+            case '/':
+                if (secondOperand !== 0) {
+                    setResult(() => firstOperand / secondOperand)
+                } else {
+                    setResult(() => NaN)
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
+
     return (
         <main>
             <div className={`display border-radius ${selectTheme === 'two' ?
@@ -79,10 +97,10 @@ const Main = () => {
                 selectTheme === 'three' ?
                     'tertiary-colors' :
                     'main-colors'}`}>
-                <div className='previousOperand'>
-                    {operator}
+                <div className='secondOperand'>
+                    {!calc ? "" : firstOperand + selectOperator + secondOperand}
                 </div>
-                <div className='current'>{currentOperand}</div>
+                <div className='current'>{calc ? secondOperand : showResult ? result : firstOperand}</div>
             </div>
             <div className={`grid border-radius ${selectTheme === 'two' ?
                 'secondary-colors' :
@@ -106,7 +124,7 @@ const Main = () => {
                 <BtnOperator operator="/" doubleSize={false} handleOps={() => handleOps("/")} />
                 <BtnOperator operator="x" doubleSize={false} handleOps={() => handleOps("x")} />
                 <BtnOperator operator="RESET" doubleSize={true} handleOps={() => handleOps("RESET")} />
-                <BtnOperator operator="=" doubleSize={true} handleOps={() => handleOps("=")} />
+                <BtnOperator operator="=" doubleSize={true} handleOps={handleResult} />
             </div>
         </main>
     )

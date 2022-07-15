@@ -78,19 +78,8 @@ input[type="radio"] {
 }
 ```
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+useState hooks(https://beta.reactjs.org/apis/usestate#usestate)
+React typescript calculator inspiration(https://morioh.com/p/5d8982ed050b)
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
