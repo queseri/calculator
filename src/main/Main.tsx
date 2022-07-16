@@ -86,6 +86,18 @@ const Main = () => {
         }
     }
 
+    const handleReset = (id: string) => {
+        console.log(id)
+        setDisplay(() => ("0"))
+        setFirstOperand(() => 0)
+        setSecondOperand(() => 0)
+        setCalc(() => false)
+        setSelectOperator(() => "")
+        setResult(() => 0)
+        setOperator(() => "")
+        setShowResult(() => false)
+    }
+
     function clearCalculations() {
         // reset the display (screen captured number), first and second number
         // so that new calculations can be entered without appending to previous data
@@ -154,7 +166,7 @@ const Main = () => {
                 <BtnNumbers num={0} handleClick={() => handleClick(0)} />
                 <BtnOperator operator="/" doubleSize={false} handleOps={() => handleOps("/")} />
                 <BtnOperator operator="x" doubleSize={false} handleOps={() => handleOps("x")} />
-                <BtnOperator operator="RESET" doubleSize={true} handleOps={() => handleOps("RESET")} />
+                <BtnOperator operator="RESET" doubleSize={true} handleOps={() => handleReset("RESET")} />
                 <BtnOperator operator="=" doubleSize={true} handleOps={handleResult} />
             </div>
         </main>
