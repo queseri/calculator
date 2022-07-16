@@ -15,7 +15,7 @@ const Main = () => {
     const [display, setDisplay] = useState<string>('0')
     const [showResult, setShowResult] = useState<boolean>(false)
 
-    function handleClick(id: number) {
+    function handleDigits(id: number) {
         // the screen will show either the result of calculation when showResult is true or
         // the number being entered when showResult is false. Hence at start showResult is false
         console.log(`calculations has been set to 1: ${calc}`)
@@ -40,7 +40,7 @@ const Main = () => {
         }
     }
 
-    const handleOps = (id: string) => {
+    const handleOperations = (id: string) => {
         setOperator(() => id);
         setSelectOperator(() => id);
         setDisplay(() => "");
@@ -139,11 +139,19 @@ const Main = () => {
                 selectTheme === 'three' ?
                     'tertiary-colors' :
                     'main-colors'}`}>
+
                 <div className='secondDisplay' aria-live='polite'>
-                    {!calc ? "" : firstOperand + " " + selectOperator + " " + secondOperand}
+                    {!calc ?
+                        "" :
+                        firstOperand + " " + selectOperator + " " + secondOperand}
                 </div>
+
                 <div className='current' aria-live='polite'>
-                    {calc ? secondOperand : showResult ? result.toLocaleString("en") : firstOperand }
+
+                    {calc ?
+                        secondOperand : showResult ?
+                            result.toLocaleString("en") :
+                            firstOperand}
                 </div>
             </div>
             <div className={`grid border-radius ${selectTheme === 'two' ?
@@ -151,24 +159,24 @@ const Main = () => {
                 selectTheme === 'three' ?
                     'tertiary-colors' :
                     'main-colors'}`}>
-                <BtnNumbers num={7} handleClick={() => handleClick(7)} />
-                <BtnNumbers num={8} handleClick={() => handleClick(8)} />
-                <BtnNumbers num={9} handleClick={() => handleClick(9)} />
-                <BtnOperator operator="DEL" doubleSize={false} handleOps={() => handleDelete()} />
-                <BtnNumbers num={4} handleClick={() => handleClick(4)} />
-                <BtnNumbers num={5} handleClick={() => handleClick(5)} />
-                <BtnNumbers num={6} handleClick={() => handleClick(6)} />
-                <BtnOperator operator="+" doubleSize={false} handleOps={() => handleOps("+")} />
-                <BtnNumbers num={1} handleClick={() => handleClick(1)} />
-                <BtnNumbers num={2} handleClick={() => handleClick(2)} />
-                <BtnNumbers num={3} handleClick={() => handleClick(3)} />
-                <BtnOperator operator="-" doubleSize={false} handleOps={() => handleOps("-")} />
+                <BtnNumbers num={7} handleDigits={() => handleDigits(7)} />
+                <BtnNumbers num={8} handleDigits={() => handleDigits(8)} />
+                <BtnNumbers num={9} handleDigits={() => handleDigits(9)} />
+                <BtnOperator operator="DEL" doubleSize={false} handleOperations={() => handleDelete()} />
+                <BtnNumbers num={4} handleDigits={() => handleDigits(4)} />
+                <BtnNumbers num={5} handleDigits={() => handleDigits(5)} />
+                <BtnNumbers num={6} handleDigits={() => handleDigits(6)} />
+                <BtnOperator operator="+" doubleSize={false} handleOperations={() => handleOperations("+")} />
+                <BtnNumbers num={1} handleDigits={() => handleDigits(1)} />
+                <BtnNumbers num={2} handleDigits={() => handleDigits(2)} />
+                <BtnNumbers num={3} handleDigits={() => handleDigits(3)} />
+                <BtnOperator operator="-" doubleSize={false} handleOperations={() => handleOperations("-")} />
                 <BtnDecimal operator="." doubleSize={false} handleDecimal={() => handleDecimal(".")} />
-                <BtnNumbers num={0} handleClick={() => handleClick(0)} />
-                <BtnOperator operator="/" doubleSize={false} handleOps={() => handleOps("/")} />
-                <BtnOperator operator="x" doubleSize={false} handleOps={() => handleOps("x")} />
-                <BtnOperator operator="RESET" doubleSize={true} handleOps={() => handleReset()} />
-                <BtnOperator operator="=" doubleSize={true} handleOps={handleResult} />
+                <BtnNumbers num={0} handleDigits={() => handleDigits(0)} />
+                <BtnOperator operator="/" doubleSize={false} handleOperations={() => handleOperations("/")} />
+                <BtnOperator operator="x" doubleSize={false} handleOperations={() => handleOperations("x")} />
+                <BtnOperator operator="RESET" doubleSize={true} handleOperations={() => handleReset()} />
+                <BtnOperator operator="=" doubleSize={true} handleOperations={handleResult} />
             </div>
         </main>
     )

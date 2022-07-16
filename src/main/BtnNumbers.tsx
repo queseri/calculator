@@ -1,11 +1,11 @@
 import React from 'react'
 interface numberProps {
     num: number,   
-    handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+    handleDigits: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
-const BtnNumbers = ({ num, handleClick }: numberProps) => {
+const BtnNumbers = ({ num, handleDigits }: numberProps) => {
     return (
-        <button className="btn numbers" onClick={handleClick}>
+        <button className="btn numbers" onClick={handleDigits}>
             {num}
         </button>
     )

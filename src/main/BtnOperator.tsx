@@ -2,11 +2,11 @@ import React from 'react'
 interface Operations {
     operator: string,
     doubleSize: boolean,
-    handleOps: (evt: React.MouseEvent<HTMLButtonElement>) => void
+    handleOperations: (evt: React.MouseEvent<HTMLButtonElement>) => void
 }
-const BtnOperator = ({ operator, doubleSize, handleOps }: Operations) => {
+const BtnOperator = ({ operator, doubleSize, handleOperations }: Operations) => {
     return (
-        <button className={`btn operators ${doubleSize ? "double-size" : ""}`} onClick={handleOps}>
+        <button className={`btn operators ${doubleSize ? "double-size" : ""}`} onClick={handleOperations}>
             {operator}
         </button>
     )
