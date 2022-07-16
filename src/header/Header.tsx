@@ -15,7 +15,7 @@ const Header = () => {
   }
   return (
     <header className={`header`}>
-      <h1>Calc</h1>
+      <h1>calc</h1>
       <fieldset className="theme-control" >
         <legend className="theme-header">theme</legend>
         <div className="theme theme-1">

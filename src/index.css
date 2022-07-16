@@ -87,7 +87,7 @@ select {
 :root {
 
   --main-bg-color: hsla(222, 26%, 31%, 1);
-  --main-tx-color: hsla(0, 0%, 100%, 1);
+  --main-white-color: hsla(0, 0%, 100%, 1);
   --main-eq-bg-color: hsla(6, 63%, 50%, 1);
   --main-reset-bg-color: hsla(225, 21%, 49%, 1);
   --main-btn-tx-color: hsla(221, 14%, 31%, 1);
@@ -124,24 +124,34 @@ select {
   --tertiary-del-box-shadow: 0px 4px 0px 0px hsla(285, 91%, 52%, 1);
   --tertiary-eq-box-shadow: 0px 4px 0px 0px hsla(177, 92%, 70%, 1);
 
+  --font-family: 'League Spartan', sans-serif;
 
 }
 
 body {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-family);
   background-color: var(--main-bg-color);
-  color: var(--main-tx-color);
+  color: var(--main-white-color);
 }
 
 .app {
   text-align: center;
   width: 100%;
-  padding: 1.5rem;
-  max-width: 33.75rem;
+  padding: 1.7rem;
+  max-width: 37.25rem;
 }
 
 .border-radius {
   border-radius: 10px;
+}
+
+h1 {
+  font-family: var(--font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-align: center;
 }
 
 /**************************************/
@@ -149,7 +159,7 @@ body {
 /**************************************/
 .main-colors {
   background-color: var(--main-bg-color);
-  color: var(--main-tx-color);
+  color: var(--main-white-color);
 }
 
 .main-colors.display {
@@ -178,7 +188,7 @@ body {
   align-items: center;
   position: relative;
   z-index: 2;
-  gap: 1.5rem;
+  gap: .5rem;
   border: none;
   padding-inline: 0;
 }
@@ -208,12 +218,14 @@ body {
 legend {
   display: contents;
   font-weight: 700;
-  font-size: 0.75rem
+  font-size: 0.75rem;
+  line-height: 1.1;
 }
 
 .label {
   font-weight: 700;
-  font-size: 0.75rem
+  font-size: 0.75rem;
+  line-height: 1.1;
 }
 
 input[type="radio"] {
@@ -250,21 +262,23 @@ input[type="radio"]:checked {
   position: relative;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   cursor: pointer;
   opacity: 0.75;
+  background-color: var(--main-white-color);
 }
 
 .btn:nth-child(4),
 .btn:nth-child(17) {
   background-color: var(--main-reset-bg-color);
-  color: var(--main-tx-color);
+  color: var(--main-white-color);
   box-shadow: var(--main-del-box-shadow);
 }
 
 .btn:last-child {
   background-color: var(--main-eq-bg-color);
-  color: var(--main-tx-color);
+  color: var(--main-white-color);
   box-shadow: var(--main-eq-box-shadow);
 }
 
@@ -277,7 +291,7 @@ input[type="radio"]:checked {
 }
 
 .display {
-  padding: 1.5rem;
+  padding: .5rem 1rem;
   text-align: right;
   margin-block: 1rem;
   font-size: 2.5rem;
@@ -285,7 +299,7 @@ input[type="radio"]:checked {
 }
 
 .secondDisplay {
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 500;
   min-height: 1.5rem;
 }
@@ -324,14 +338,14 @@ input[type="radio"]:checked {
 .secondary-colors .btn:nth-child(4),
 .secondary-colors .btn:nth-child(17) {
   background-color: var(--secondary-reset-bg-color);
-  color: var(--main-tx-color);
+  color: var(--main-white-color);
   box-shadow: var(--secondary-del-box-shadow);
 }
 
 .secondary-colors .btn:last-child {
   background-color: var(--secondary-eq-bg-color);
   box-shadow: var(--secondary-eq-box-shadow);
-  color: var(--main-tx-color);
+  color: var(--main-white-color);
 }
 
 /**************************************/
@@ -365,7 +379,7 @@ input[type="radio"]:checked {
 .tertiary-colors .btn:nth-child(4),
 .tertiary-colors .btn:nth-child(17) {
   background-color: var(--tertiary-reset-bg-color);
-  color: var(--main-tx-color);
+  color: var(--main-white-color);
   box-shadow: var(--tertiary-del-box-shadow);
 }
 
@@ -373,4 +387,19 @@ input[type="radio"]:checked {
   background-color: var(--tertiary-eq-bg-color);
   box-shadow: var(--tertiary-eq-box-shadow);
   color: var(--tertiary-eq-tx-color);
+}
+
+@media screen and (min-width: 42rem) {
+  .app {
+    padding-block: 6rem;
+  }
+
+  .display {
+    font-size: 3.5rem;
+  }
+
+  .btn {
+    font-size: 2.5rem;
+  }
+
 }

@@ -62,9 +62,9 @@ const Main = () => {
     }
 
     const handleDecimal = (id: string) => {
-        console.log(id)
+
         if (display.indexOf('.') === -1) {
-            setDisplay(() => display + id)
+            setDisplay(display => display + id)
             if (!calc) {
                 setFirstOperand(() => Number(display + id))
             } else {
@@ -75,19 +75,20 @@ const Main = () => {
         }
 
     }
-    const handleDelete = (id: string) => {
-        console.log(id)
-        setDisplay(display => display.slice(0, -1))
-        console.log(display)
-        if (!calc) {
-            setFirstOperand(() => Number(display.slice(0, -1)))
+    const handleDelete = () => {
+        if (display.length < 1) {
+            return;
         } else {
-            setSecondOperand(() => Number(display.slice(0, -1)))
+            setDisplay(display => display.slice(0, -1))
+            if (!calc) {
+                setFirstOperand(() => Number(display.slice(0, -1)))
+            } else {
+                setSecondOperand(() => Number(display.slice(0, -1)))
+            }
         }
     }
 
-    const handleReset = (id: string) => {
-        console.log(id)
+    const handleReset = () => {
         setDisplay(() => ("0"))
         setFirstOperand(() => 0)
         setSecondOperand(() => 0)
@@ -107,8 +108,6 @@ const Main = () => {
     }
 
     function operations() {
-        console.log(`calculations has been set to 2: ${calc}`)
-        console.log(` ${firstOperand}: ${operator} ${secondOperand} = ${result}`)
         switch (operator) {
             case '+':
                 setResult(() => secondOperand + firstOperand);
@@ -140,10 +139,12 @@ const Main = () => {
                 selectTheme === 'three' ?
                     'tertiary-colors' :
                     'main-colors'}`}>
-                <div className='secondDisplay'>
-                    {!calc ? "" : firstOperand + selectOperator + secondOperand}
+                <div className='secondDisplay' aria-live='polite'>
+                    {!calc ? "" : firstOperand + " " + selectOperator + " " + secondOperand}
                 </div>
-                <div className='current'>{calc ? secondOperand : showResult ? result : firstOperand}</div>
+                <div className='current' aria-live='polite'>
+                    {calc ? secondOperand : showResult ? result.toLocaleString("en") : firstOperand }
+                </div>
             </div>
             <div className={`grid border-radius ${selectTheme === 'two' ?
                 'secondary-colors' :
@@ -153,7 +154,7 @@ const Main = () => {
                 <BtnNumbers num={7} handleClick={() => handleClick(7)} />
                 <BtnNumbers num={8} handleClick={() => handleClick(8)} />
                 <BtnNumbers num={9} handleClick={() => handleClick(9)} />
-                <BtnOperator operator="DEL" doubleSize={false} handleOps={() => handleDelete("DEL")} />
+                <BtnOperator operator="DEL" doubleSize={false} handleOps={() => handleDelete()} />
                 <BtnNumbers num={4} handleClick={() => handleClick(4)} />
                 <BtnNumbers num={5} handleClick={() => handleClick(5)} />
                 <BtnNumbers num={6} handleClick={() => handleClick(6)} />
@@ -166,7 +167,7 @@ const Main = () => {
                 <BtnNumbers num={0} handleClick={() => handleClick(0)} />
                 <BtnOperator operator="/" doubleSize={false} handleOps={() => handleOps("/")} />
                 <BtnOperator operator="x" doubleSize={false} handleOps={() => handleOps("x")} />
-                <BtnOperator operator="RESET" doubleSize={true} handleOps={() => handleReset("RESET")} />
+                <BtnOperator operator="RESET" doubleSize={true} handleOps={() => handleReset()} />
                 <BtnOperator operator="=" doubleSize={true} handleOps={handleResult} />
             </div>
         </main>
