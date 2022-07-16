@@ -75,6 +75,16 @@ const Main = () => {
         }
 
     }
+    const handleDelete = (id: string) => {
+        console.log(id)
+        setDisplay(display => display.slice(0, -1))
+        console.log(display)
+        if (!calc) {
+            setFirstOperand(() => Number(display.slice(0, -1)))
+        } else {
+            setSecondOperand(() => Number(display.slice(0, -1)))
+        }
+    }
 
     function clearCalculations() {
         // reset the display (screen captured number), first and second number
@@ -131,7 +141,7 @@ const Main = () => {
                 <BtnNumbers num={7} handleClick={() => handleClick(7)} />
                 <BtnNumbers num={8} handleClick={() => handleClick(8)} />
                 <BtnNumbers num={9} handleClick={() => handleClick(9)} />
-                <BtnOperator operator="DEL" doubleSize={false} handleOps={() => handleOps("DEL")} />
+                <BtnOperator operator="DEL" doubleSize={false} handleOps={() => handleDelete("DEL")} />
                 <BtnNumbers num={4} handleClick={() => handleClick(4)} />
                 <BtnNumbers num={5} handleClick={() => handleClick(5)} />
                 <BtnNumbers num={6} handleClick={() => handleClick(6)} />
