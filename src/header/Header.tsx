@@ -1,9 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { DataContext } from '../context/Context'
 
 const Header = () => {
   const { selectTheme, setSelectTheme } = useContext(DataContext)
-  
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(selectTheme))
+  }, [selectTheme])
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (setSelectTheme) {
       setSelectTheme(e.target.value)

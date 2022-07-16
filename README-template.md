@@ -83,7 +83,24 @@ React typescript calculator inspiration(https://morioh.com/p/5d8982ed050b)
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+#### Type 'string or null' is not assignable to type string (TS)
+
+```
+Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.ts(2345)
+```
+
+The theme have a selection of three choices, which in this case i wanted to utilise `localStorage` for data to persist in the browser even when the browser is refreshed or system has been rebooted. The theme interface in the `Context` is as shown below , where `null` has been added to the selectTheme. The value of `localStorage.getItem` is being implied to be null at times. To fix the issue, the `!` (non-null assertion) which is at the end of `useState<string>(JSON.parse(localStorage.getItem("theme")!)` is used
+```
+interface userThemeProps {
+    selectTheme: string | null,
+    setSelectTheme?: React.Dispatch<React.SetStateAction<string>>,
+}
+
+----
+ const [selectTheme, setSelectTheme] = useState<string>(JSON.parse(localStorage.getItem("theme")!) ||'one')
+```
+For more reading , [Type 'string or null' is not assignable to type string (TS)](https://bobbyhadz.com/blog/typescript-type-null-is-not-assignable-to-type-string)
 
 ### Continued development
 
