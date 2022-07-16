@@ -26,6 +26,9 @@ const Main = () => {
         }
         // display => number to be displayed on the screen. A click on a number button will 
         // add another number to the display. display is a string.
+        if (display.length > 12) {
+            return
+        }
         setDisplay(() => display + id)
         // calc is false at the start, any numbers entered when calc is false will be added to the
         // string display - converted to a number by setFirstOperand. When calc is true - triggered by
