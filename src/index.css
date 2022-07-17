@@ -118,7 +118,7 @@ select {
   --dark-reset-bg-color: hsla(281, 89%, 26%, 1);
   --dark-btn-bg-color: hsla(268, 47%, 21%, 1);
   --dark-btn-tx-color: hsla(52, 100%, 62%, 1);
-  --dark-display-bg-color: hsla(268, 71%, 12%, 1); 
+  --dark-display-bg-color: hsla(268, 71%, 12%, 1);
   --dark-box-shadow: 0px 4px 0px 0px hsla(290, 70%, 36%, 1);
   --dark-del-box-shadow: 0px 4px 0px 0px hsla(285, 91%, 52%, 1);
   --dark-eq-box-shadow: 0px 4px 0px 0px hsla(177, 92%, 70%, 1);
@@ -259,6 +259,7 @@ input[type="radio"]:checked {
   border-radius: 5px;
   z-index: 20;
   position: relative;
+  outline: none;
 }
 
 .btn:hover,
@@ -266,6 +267,8 @@ input[type="radio"]:checked {
   cursor: pointer;
   opacity: 0.75;
   background-color: var(--neutral-white-color);
+  outline: dashed currentColor;
+  outline-offset: -0.25em;
 }
 
 .btn:nth-child(4),

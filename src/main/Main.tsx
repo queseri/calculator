@@ -21,8 +21,7 @@ const Main = () => {
         console.log(`calculations has been set to 1: ${calc}`)
         if (showResult) {
             setResult(() => 0)
-            setShowResult(() => false)
-            // clearCalculations();
+            setShowResult(() => false)           
         }
         // display => number to be displayed on the screen. A click on a number button will 
         // add another number to the display. display is a string.
@@ -159,6 +158,7 @@ const Main = () => {
                 selectTheme === 'dark' ?
                     'dark-colors' :
                     'neutral-colors'}`}>
+
                 <BtnNumbers num={7} handleDigits={() => handleDigits(7)} />
                 <BtnNumbers num={8} handleDigits={() => handleDigits(8)} />
                 <BtnNumbers num={9} handleDigits={() => handleDigits(9)} />
