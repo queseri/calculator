@@ -73,7 +73,7 @@ input[type="radio"] {
   appearance: none;
   width: 1em;
   height: 1em;
-  background: var(--main-eq-bg-color);
+  background: var(--neutral-eq-bg-color);
   border-radius: 50%;
 }
 ```

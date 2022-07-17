@@ -18,31 +18,31 @@ const Header = () => {
       <h1>calc</h1>
       <fieldset className="theme-control" >
         <legend className="theme-header">theme</legend>
-        <div className="theme theme-1">
+        <div className="theme neutral-scheme">
           <input type="radio"
             name="theme"
-            id="first-theme"
-            value="one"
-            checked={selectTheme === 'one'}
+            id="neutral-theme"
+            value="neutral"
+            checked={selectTheme === 'neutral'}
             onChange={onChange} />
-          <label className="label" htmlFor="first-theme">1</label>
+          <label className="label" htmlFor="neutral-theme">1</label>
         </div>
-        <div className="theme theme-2">
+        <div className="theme light-scheme">
           <input type="radio"
             name="theme"
-            id="second-theme"
-            value="two"
-            checked={selectTheme === 'two'}
+            id="light-theme"
+            value="light"
+            checked={selectTheme === 'light'}
             onChange={onChange} />
-          <label className="label" htmlFor="second-theme">2</label>
+          <label className="label" htmlFor="light-theme">2</label>
         </div>
-        <div className="theme theme-3">
+        <div className="theme dark-scheme">
           <input type="radio"
             name="theme"
-            id="third-theme"
-            value="three"
-            checked={selectTheme === 'three'} onChange={onChange} />
-          <label className="label" htmlFor="third-theme">3</label>
+            id="dark-theme"
+            value="dark"
+            checked={selectTheme === 'dark'} onChange={onChange} />
+          <label className="label" htmlFor="dark-theme">3</label>
         </div>
       </fieldset>
     </header>

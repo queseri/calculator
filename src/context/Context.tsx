@@ -1,7 +1,7 @@
 import { useState, createContext } from "react";
 
 const defaultState = {
-    selectTheme: 'one',
+    selectTheme: 'neutral',
 }
 interface ThemeProviderProps {
     children: React.ReactNode
@@ -13,7 +13,7 @@ interface userThemeProps {
 
 export const DataContext = createContext<userThemeProps>(defaultState)
 export const DataProvider = ({ children }: ThemeProviderProps) => {
-    const [selectTheme, setSelectTheme] = useState<string>(JSON.parse(localStorage.getItem("theme")!) ||'one')
+    const [selectTheme, setSelectTheme] = useState<string>(JSON.parse(localStorage.getItem("theme")!) ||'neutral')
 
     return (
         <DataContext.Provider value={{ selectTheme, setSelectTheme }}>

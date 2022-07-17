@@ -7,11 +7,11 @@ function App() {
   const { selectTheme } = useContext(DataContext)
   return (
     <div
-      className={`wrapper  ${selectTheme === 'two' ?
-        'secondary-colors' :
-        selectTheme === 'three' ?
-          'tertiary-colors' :
-          'main-colors'} `}>
+      className={`wrapper  ${selectTheme === 'light' ?
+        'light-colors' :
+        selectTheme === 'dark' ?
+          'dark-colors' :
+          'neutral-colors'} `}>
       <div className="app">
         <Header />
         <Main />

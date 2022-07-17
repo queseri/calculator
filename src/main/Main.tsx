@@ -134,11 +134,11 @@ const Main = () => {
 
     return (
         <main>
-            <div className={`display border-radius ${selectTheme === 'two' ?
-                'secondary-colors' :
-                selectTheme === 'three' ?
-                    'tertiary-colors' :
-                    'main-colors'}`}>
+            <div className={`display border-radius ${selectTheme === 'light' ?
+                'light-colors' :
+                selectTheme === 'dark' ?
+                    'dark-colors' :
+                    'neutral-colors'}`}>
 
                 <div className='secondDisplay' aria-live='polite'>
                     {!calc ?
@@ -154,11 +154,11 @@ const Main = () => {
                             firstOperand}
                 </div>
             </div>
-            <div className={`grid border-radius ${selectTheme === 'two' ?
-                'secondary-colors' :
-                selectTheme === 'three' ?
-                    'tertiary-colors' :
-                    'main-colors'}`}>
+            <div className={`grid border-radius ${selectTheme === 'light' ?
+                'light-colors' :
+                selectTheme === 'dark' ?
+                    'dark-colors' :
+                    'neutral-colors'}`}>
                 <BtnNumbers num={7} handleDigits={() => handleDigits(7)} />
                 <BtnNumbers num={8} handleDigits={() => handleDigits(8)} />
                 <BtnNumbers num={9} handleDigits={() => handleDigits(9)} />

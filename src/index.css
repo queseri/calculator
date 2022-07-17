@@ -86,43 +86,42 @@ select {
 
 :root {
 
-  --main-bg-color: hsla(222, 26%, 31%, 1);
-  --main-white-color: hsla(0, 0%, 100%, 1);
-  --main-eq-bg-color: hsla(6, 63%, 50%, 1);
-  --main-reset-bg-color: hsla(225, 21%, 49%, 1);
-  --main-btn-tx-color: hsla(221, 14%, 31%, 1);
-  --main-btn-bg-color: hsla(31, 24%, 89%, 1);
-  --main-radio-bg-color: hsla(223, 31%, 20%, 1);
-  --main-display-bg-color: hsla(224, 36%, 15%, 1);
-  --main-grid-bg-color: hsla(224, 30%, 21%, 1);
-  --main-box-shadow: 0px 4px 0px 0px hsla(27, 15%, 65%, 1);
-  --main-del-box-shadow: 0px 4px 0px 0px hsla(224, 28%, 35%, 1);
-  --main-eq-box-shadow: 0px 4px 0px 0px hsla(6, 70%, 34%, 1);
+  --neutral-bg-color: hsla(222, 26%, 31%, 1);
+  --neutral-white-color: hsla(0, 0%, 100%, 1);
+  --neutral-eq-bg-color: hsla(6, 63%, 50%, 1);
+  --neutral-reset-bg-color: hsla(225, 21%, 49%, 1);
+  --neutral-btn-tx-color: hsla(221, 14%, 31%, 1);
+  --neutral-btn-bg-color: hsla(31, 24%, 89%, 1);
+  --neutral-radio-bg-color: hsla(223, 31%, 20%, 1);
+  --neutral-display-bg-color: hsla(224, 36%, 15%, 1);
+  --neutral-grid-bg-color: hsla(224, 30%, 21%, 1);
+  --neutral-box-shadow: 0px 4px 0px 0px hsla(27, 15%, 65%, 1);
+  --neutral-del-box-shadow: 0px 4px 0px 0px hsla(224, 28%, 35%, 1);
+  --neutral-eq-box-shadow: 0px 4px 0px 0px hsla(6, 70%, 34%, 1);
 
-  --secondary-bg-color: hsla(0, 0%, 90%, 1);
-  --secondary-tx-color: hsla(60, 10%, 19%, 1);
-  --secondary-eq-bg-color: hsla(25, 98%, 40%, 1);
-  --secondary-reset-bg-color: hsla(184, 42%, 37%, 1);
-  --secondary-btn-bg-color: hsla(45, 7%, 89%, 1);
-  --secondary-btn-tx-color: hsla(60, 10%, 19%, 1);
-  --secondary-display-bg-color: hsla(0, 0%, 93%, 1);
-  --secondary-grid-bg-color: hsla(0, 5%, 81%, 1);
-  --secondary-box-shadow: 0px 4px 0px 0px hsla(35, 11%, 61%, 1);
-  --secondary-del-box-shadow: 0px 4px 0px 0px hsla(185, 58%, 25%, 1);
-  --secondary-eq-box-shadow: 0px 4px 0px 0px hsla(25, 99%, 27%, 1);
+  --light-bg-color: hsla(0, 0%, 90%, 1);
+  --light-tx-color: hsla(60, 10%, 19%, 1);
+  --light-eq-bg-color: hsla(25, 98%, 40%, 1);
+  --light-reset-bg-color: hsla(184, 42%, 37%, 1);
+  --light-btn-bg-color: hsla(45, 7%, 89%, 1);
+  --light-btn-tx-color: hsla(60, 10%, 19%, 1);
+  --light-display-bg-color: hsla(0, 0%, 93%, 1);
+  --light-grid-bg-color: hsla(0, 5%, 81%, 1);
+  --light-box-shadow: 0px 4px 0px 0px hsla(35, 11%, 61%, 1);
+  --light-del-box-shadow: 0px 4px 0px 0px hsla(185, 58%, 25%, 1);
+  --light-eq-box-shadow: 0px 4px 0px 0px hsla(25, 99%, 27%, 1);
 
-  --tertiary-bg-color: hsla(268, 75%, 9%, 1);
-  --tertiary-tx-color: hsla(52, 100%, 62%, 1);
-  --tertiary-eq-bg-color: hsla(176, 100%, 44%, 1);
-  --tertiary-eq-tx-color: hsla(198, 20%, 13%, 1);
-  --tertiary-reset-bg-color: hsla(281, 89%, 26%, 1);
-  --tertiary-btn-bg-color: hsla(268, 47%, 21%, 1);
-  --tertiary-btn-tx-color: hsla(52, 100%, 62%, 1);
-  --tertiary-display-bg-color: hsla(268, 71%, 12%, 1);
-  /*  --tertiary-grid-bg-color: hsla(268, 71%, 12%, 1); */
-  --tertiary-box-shadow: 0px 4px 0px 0px hsla(290, 70%, 36%, 1);
-  --tertiary-del-box-shadow: 0px 4px 0px 0px hsla(285, 91%, 52%, 1);
-  --tertiary-eq-box-shadow: 0px 4px 0px 0px hsla(177, 92%, 70%, 1);
+  --dark-bg-color: hsla(268, 75%, 9%, 1);
+  --dark-tx-color: hsla(52, 100%, 62%, 1);
+  --dark-eq-bg-color: hsla(176, 100%, 44%, 1);
+  --dark-eq-tx-color: hsla(198, 20%, 13%, 1);
+  --dark-reset-bg-color: hsla(281, 89%, 26%, 1);
+  --dark-btn-bg-color: hsla(268, 47%, 21%, 1);
+  --dark-btn-tx-color: hsla(52, 100%, 62%, 1);
+  --dark-display-bg-color: hsla(268, 71%, 12%, 1); 
+  --dark-box-shadow: 0px 4px 0px 0px hsla(290, 70%, 36%, 1);
+  --dark-del-box-shadow: 0px 4px 0px 0px hsla(285, 91%, 52%, 1);
+  --dark-eq-box-shadow: 0px 4px 0px 0px hsla(177, 92%, 70%, 1);
 
   --font-family: 'League Spartan', sans-serif;
 
@@ -130,8 +129,8 @@ select {
 
 body {
   font-family: var(--font-family);
-  background-color: var(--main-bg-color);
-  color: var(--main-white-color);
+  background-color: var(--neutral-bg-color);
+  color: var(--neutral-white-color);
 }
 
 .app {
@@ -157,17 +156,17 @@ h1 {
 /**************************************/
 /*************DEFAULT COLORS***********/
 /**************************************/
-.main-colors {
-  background-color: var(--main-bg-color);
-  color: var(--main-white-color);
+.neutral-colors {
+  background-color: var(--neutral-bg-color);
+  color: var(--neutral-white-color);
 }
 
-.main-colors.display {
-  background-color: var(--main-display-bg-color);
+.neutral-colors.display {
+  background-color: var(--neutral-display-bg-color);
 }
 
-.main-colors.grid {
-  background-color: var(--main-grid-bg-color);
+.neutral-colors.grid {
+  background-color: var(--neutral-grid-bg-color);
 }
 
 .wrapper {
@@ -198,7 +197,7 @@ h1 {
   content: "";
   width: 70%;
   height: 25px;
-  background: var(--main-radio-bg-color);
+  background: var(--neutral-radio-bg-color);
   z-index: -1;
   bottom: 8%;
   left: 33%;
@@ -233,7 +232,7 @@ input[type="radio"] {
   appearance: none;
   width: 1em;
   height: 1em;
-  background: var(--main-eq-bg-color);
+  background: var(--neutral-eq-bg-color);
   border-radius: 50%;
 }
 
@@ -255,8 +254,8 @@ input[type="radio"]:checked {
   text-align: center;
   padding-block: .9rem;
   border: none;
-  background-color: var(--main-btn-bg-color);
-  box-shadow: var(--main-box-shadow);
+  background-color: var(--neutral-btn-bg-color);
+  box-shadow: var(--neutral-box-shadow);
   border-radius: 5px;
   z-index: 20;
   position: relative;
@@ -266,20 +265,20 @@ input[type="radio"]:checked {
 .btn:focus {
   cursor: pointer;
   opacity: 0.75;
-  background-color: var(--main-white-color);
+  background-color: var(--neutral-white-color);
 }
 
 .btn:nth-child(4),
 .btn:nth-child(17) {
-  background-color: var(--main-reset-bg-color);
-  color: var(--main-white-color);
-  box-shadow: var(--main-del-box-shadow);
+  background-color: var(--neutral-reset-bg-color);
+  color: var(--neutral-white-color);
+  box-shadow: var(--neutral-del-box-shadow);
 }
 
 .btn:last-child {
-  background-color: var(--main-eq-bg-color);
-  color: var(--main-white-color);
-  box-shadow: var(--main-eq-box-shadow);
+  background-color: var(--neutral-eq-bg-color);
+  color: var(--neutral-white-color);
+  box-shadow: var(--neutral-eq-box-shadow);
 }
 
 .double-size:nth-child(odd) {
@@ -305,88 +304,88 @@ input[type="radio"]:checked {
 }
 
 /**************************************/
-/***********SECONDARY COLORS***********/
+/***********light COLORS***********/
 /**************************************/
-.secondary-colors {
-  background-color: var(--secondary-bg-color);
-  color: var(--secondary-tx-color);
+.light-colors {
+  background-color: var(--light-bg-color);
+  color: var(--light-tx-color);
 }
 
-.secondary-colors .theme-control::before {
-  background-color: var(--secondary-grid-bg-color);
+.light-colors .theme-control::before {
+  background-color: var(--light-grid-bg-color);
 }
 
-.secondary-colors input[type="radio"] {
-  background-color: var(--secondary-eq-bg-color);
+.light-colors input[type="radio"] {
+  background-color: var(--light-eq-bg-color);
 }
 
-.secondary-colors.display {
-  background-color: var(--secondary-display-bg-color);
-  color: var(--secondary-tx-color);
+.light-colors.display {
+  background-color: var(--light-display-bg-color);
+  color: var(--light-tx-color);
 }
 
-.secondary-colors.grid {
-  background-color: var(--secondary-grid-bg-color);
-  color: var(--secondary-tx-color);
+.light-colors.grid {
+  background-color: var(--light-grid-bg-color);
+  color: var(--light-tx-color);
 }
 
-.secondary-colors .btn {
-  background-color: var(--secondary-btn-bg-color);
-  color: var(--secondary-tx-color);
+.light-colors .btn {
+  background-color: var(--light-btn-bg-color);
+  color: var(--light-tx-color);
 }
 
-.secondary-colors .btn:nth-child(4),
-.secondary-colors .btn:nth-child(17) {
-  background-color: var(--secondary-reset-bg-color);
-  color: var(--main-white-color);
-  box-shadow: var(--secondary-del-box-shadow);
+.light-colors .btn:nth-child(4),
+.light-colors .btn:nth-child(17) {
+  background-color: var(--light-reset-bg-color);
+  color: var(--neutral-white-color);
+  box-shadow: var(--light-del-box-shadow);
 }
 
-.secondary-colors .btn:last-child {
-  background-color: var(--secondary-eq-bg-color);
-  box-shadow: var(--secondary-eq-box-shadow);
-  color: var(--main-white-color);
+.light-colors .btn:last-child {
+  background-color: var(--light-eq-bg-color);
+  box-shadow: var(--light-eq-box-shadow);
+  color: var(--neutral-white-color);
 }
 
 /**************************************/
-/*************TERTIARY COLORS***********/
+/*************dark COLORS***********/
 /**************************************/
-.tertiary-colors {
-  background-color: var(--tertiary-bg-color);
-  color: var(--tertiary-tx-color);
+.dark-colors {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-tx-color);
 }
 
-.tertiary-colors .theme-control::before {
-  background-color: var(--tertiary-display-bg-color);
+.dark-colors .theme-control::before {
+  background-color: var(--dark-display-bg-color);
 }
 
-.tertiary-colors.display,
-.tertiary-colors.grid {
-  background-color: var(--tertiary-display-bg-color);
-  color: var(--tertiary-tx-color)
+.dark-colors.display,
+.dark-colors.grid {
+  background-color: var(--dark-display-bg-color);
+  color: var(--dark-tx-color)
 }
 
-.tertiary-colors input[type="radio"] {
-  background-color: var(--tertiary-eq-bg-color);
+.dark-colors input[type="radio"] {
+  background-color: var(--dark-eq-bg-color);
 }
 
-.tertiary-colors .btn {
-  background-color: var(--tertiary-btn-bg-color);
-  color: var(--tertiary-btn-tx-color);
-  box-shadow: var(--tertiary-box-shadow);
+.dark-colors .btn {
+  background-color: var(--dark-btn-bg-color);
+  color: var(--dark-btn-tx-color);
+  box-shadow: var(--dark-box-shadow);
 }
 
-.tertiary-colors .btn:nth-child(4),
-.tertiary-colors .btn:nth-child(17) {
-  background-color: var(--tertiary-reset-bg-color);
-  color: var(--main-white-color);
-  box-shadow: var(--tertiary-del-box-shadow);
+.dark-colors .btn:nth-child(4),
+.dark-colors .btn:nth-child(17) {
+  background-color: var(--dark-reset-bg-color);
+  color: var(--neutral-white-color);
+  box-shadow: var(--dark-del-box-shadow);
 }
 
-.tertiary-colors .btn:last-child {
-  background-color: var(--tertiary-eq-bg-color);
-  box-shadow: var(--tertiary-eq-box-shadow);
-  color: var(--tertiary-eq-tx-color);
+.dark-colors .btn:last-child {
+  background-color: var(--dark-eq-bg-color);
+  box-shadow: var(--dark-eq-box-shadow);
+  color: var(--dark-eq-tx-color);
 }
 
 @media screen and (min-width: 42rem) {
