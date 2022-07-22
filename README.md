@@ -23,7 +23,6 @@ Users should be able to:
 - See the size of the elements adjust based on their device's screen size
 - Perform mathmatical operations like addition, subtraction, multiplication, and division
 - Adjust the color theme based on their preference
-- **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 
 ### Screenshot
 
@@ -88,10 +87,7 @@ For more reading , [Type 'string or null' is not assignable to type string (TS)]
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
+- **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 ### Useful resources
 
 - [React + TypeScript: Working with Radio Button Groups](https://www.kindacode.com/article/react-typescript-working-with-radio-button-groups/). This showed me how to use types on elements associated with radio buttons. In this particular scenario , it was the evt.

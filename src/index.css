@@ -85,7 +85,6 @@ select {
 }
 
 :root {
-
   --neutral-bg-color: hsla(222, 26%, 31%, 1);
   --neutral-white-color: hsla(0, 0%, 100%, 1);
   --neutral-eq-bg-color: hsla(6, 63%, 50%, 1);
@@ -124,7 +123,6 @@ select {
   --dark-eq-box-shadow: 0px 4px 0px 0px hsla(177, 92%, 70%, 1);
 
   --font-family: 'League Spartan', sans-serif;
-
 }
 
 body {
@@ -234,6 +232,11 @@ input[type="radio"] {
   height: 1em;
   background: var(--neutral-eq-bg-color);
   border-radius: 50%;
+}
+
+input[type="radio"]:hover,
+input[type="radio"]:focus {
+  cursor: pointer;
 }
 
 input[type="radio"]:checked {

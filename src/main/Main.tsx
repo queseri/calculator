@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { FunctionComponent, useContext, useEffect, useState } from 'react'
 import { DataContext } from '../context/Context'
 import BtnDecimal from './BtnDecimal'
 import BtnNumbers from './BtnNumbers'
 import BtnOperator from './BtnOperator'
 
-const Main = () => {
+const Main: FunctionComponent = () => {
     const { selectTheme } = useContext(DataContext)
     const [firstOperand, setFirstOperand] = useState<number>(0)
     const [secondOperand, setSecondOperand] = useState<number>(0)
@@ -18,24 +18,26 @@ const Main = () => {
     function handleDigits(id: number) {
         // the screen will show either the result of calculation when showResult is true or
         // the number being entered when showResult is false. Hence at start showResult is false
-        console.log(`calculations has been set to 1: ${calc}`)
         if (showResult) {
-            setResult(() => 0)
-            setShowResult(() => false)           
+            setResult(() => 0);
+            setShowResult(() => false);
         }
         // display => number to be displayed on the screen. A click on a number button will 
         // add another number to the display. display is a string.
-        if (display.length > 12) {
-            return
+
+        if ((display === '0' && id === 0) || display.length > 12) {
+            console.log(display, id);
+            return;
         }
-        setDisplay(() => display + id)
+        setDisplay(() => display + id);
+        console.log(display);
         // calc is false at the start, any numbers entered when calc is false will be added to the
         // string display - converted to a number by setFirstOperand. When calc is true - triggered by
         // a click on any of the operators, then the collection of numbers will become secondOperand
         if (!calc) {
-            setFirstOperand(() => Number(display + id))
+            setFirstOperand(() => Number(display + id));
         } else {
-            setSecondOperand(() => Number(display + id))
+            setSecondOperand(() => Number(display + id));
         }
     }
 
@@ -62,15 +64,13 @@ const Main = () => {
 
     const handleDecimal = (id: string) => {
 
-        if (display.indexOf('.') === -1) {
-            setDisplay(display => display + id)
+        if ((display.indexOf('.') === -1)) {
+            setDisplay(display => display + id);
             if (!calc) {
-                setFirstOperand(() => Number(display + id))
+                setFirstOperand(display => Number(display + id));
             } else {
-                setSecondOperand(() => Number(display + id))
+                setSecondOperand(display => Number(display + id));
             }
-        } else {
-            return
         }
 
     }
@@ -78,24 +78,22 @@ const Main = () => {
         if (display.length < 1) {
             return;
         } else {
-            setDisplay(display => display.slice(0, -1))
+            setDisplay(display => display.slice(0, -1));
             if (!calc) {
-                setFirstOperand(() => Number(display.slice(0, -1)))
+                setFirstOperand(() => Number(display.slice(0, -1)));
             } else {
-                setSecondOperand(() => Number(display.slice(0, -1)))
+                setSecondOperand(() => Number(display.slice(0, -1)));
             }
         }
     }
 
     const handleReset = () => {
-        setDisplay(() => ("0"))
-        setFirstOperand(() => 0)
-        setSecondOperand(() => 0)
-        setCalc(() => false)
-        setSelectOperator(() => "")
-        setResult(() => 0)
-        setOperator(() => "")
-        setShowResult(() => false)
+        clearCalculations();
+        setCalc(() => false);
+        setSelectOperator(() => "");
+        setResult(() => 0);
+        setOperator(() => "");
+        setShowResult(() => false);
     }
 
     function clearCalculations() {
@@ -110,19 +108,18 @@ const Main = () => {
         switch (operator) {
             case '+':
                 setResult(() => secondOperand + firstOperand);
-                console.log(result)
                 break;
             case '-':
                 setResult(() => firstOperand - secondOperand);
                 break;
             case 'x':
-                setResult(() => firstOperand * secondOperand)
+                setResult(() => firstOperand * secondOperand);
                 break;
             case '/':
                 if (secondOperand !== 0) {
-                    setResult(() => firstOperand / secondOperand)
+                    setResult(() => firstOperand / secondOperand);
                 } else {
-                    setResult(() => NaN)
+                    setResult(() => NaN);
                 }
                 break;
             default:
@@ -130,6 +127,41 @@ const Main = () => {
         }
 
     }
+
+    const handleKeyDown = ({ keyCode, shiftKey }: KeyboardEvent) => {
+        console.log(keyCode)
+        if (keyCode >= 48 && keyCode <= 57 && !shiftKey) {
+            handleDigits(keyCode - 48)
+        } else if (keyCode >= 96 && keyCode <= 105) {
+            handleDigits(keyCode - 96)
+        } else if (keyCode === 107 || (keyCode === 61 && shiftKey)) {
+            handleOperations("+")
+        } else if (keyCode === 109 || (keyCode === 173 && shiftKey)) {
+            handleOperations("-")
+        } else if (keyCode === 106 || (keyCode === 56 && shiftKey)) {
+            handleOperations("*")
+        } else if (keyCode === 111 || keyCode === 191) {
+            handleOperations("/")
+        } else if (keyCode === 13) {
+            handleResult()
+        } else if (keyCode === 8 || keyCode === 68 ) {
+            handleDelete()
+        } else if (keyCode === 110 || keyCode === 46 || keyCode === 82)  {
+            handleReset()
+        }
+         else if (keyCode === 190) {
+            handleDecimal(".")
+        } else {
+            return
+        }
+    }
+
+
+    useEffect(() => {
+        document.body.addEventListener('keydown', handleKeyDown)
+        return () => document.body.removeEventListener('keydown', handleKeyDown)
+    })
+
 
     return (
         <main>
@@ -145,8 +177,8 @@ const Main = () => {
                         firstOperand + " " + selectOperator + " " + secondOperand}
                 </div>
 
-                <div className='current' aria-live='polite'>
-
+                <div className='current'
+                    aria-live='polite'>
                     {calc ?
                         secondOperand : showResult ?
                             result.toLocaleString("en") :
