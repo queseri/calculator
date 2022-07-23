@@ -142,7 +142,7 @@ const Main: FunctionComponent = () => {
             handleOperations("*")
         } else if (keyCode === 111 || keyCode === 191) {
             handleOperations("/")
-        } else if (keyCode === 13) {
+        } else if (keyCode === 13 || keyCode === 61) {
             handleResult()
         } else if (keyCode === 8 || keyCode === 68 ) {
             handleDelete()
