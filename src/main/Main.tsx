@@ -49,6 +49,7 @@ const Main: FunctionComponent = () => {
     }
 
     const handleResult = () => {
+        console.log(calc)
         if (!showResult) {
             setShowResult(showResult => !showResult);
         }
@@ -139,7 +140,7 @@ const Main: FunctionComponent = () => {
         } else if (keyCode === 109 || (keyCode === 173 && shiftKey)) {
             handleOperations("-")
         } else if (keyCode === 106 || (keyCode === 56 && shiftKey)) {
-            handleOperations("*")
+            handleOperations("x")
         } else if (keyCode === 111 || keyCode === 191) {
             handleOperations("/")
         } else if (keyCode === 13 || keyCode === 61) {
