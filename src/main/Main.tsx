@@ -22,7 +22,6 @@ const Main: FunctionComponent = () => {
     secondOperand.toString()
   );
   const [calc, setCalc] = useState<boolean>(false);
-  const [selectOperator, setSelectOperator] = useState<string>("");
   const [result, setResult] = useState<number>(0);
   const [operator, setOperator] = useState<string>("+");
   const [display, setDisplay] = useState<string>("0");
@@ -81,8 +80,7 @@ const Main: FunctionComponent = () => {
   }
 
   const handleOperations = (id: string) => {
-    setOperator(() => id);
-    setSelectOperator(() => id);
+    setOperator(() => id);   
     setDisplay(() => "");
     setCalc(() => true);
     setSecondOperand(() => 0);
@@ -145,8 +143,7 @@ const Main: FunctionComponent = () => {
 
   const handleReset = () => {
     clearCalculations();
-    setCalc(() => false);
-    setSelectOperator(() => "");
+    setCalc(() => false); 
     setResult(() => 0);
     setOperator(() => "");
     setShowResult(() => false);
@@ -244,7 +241,7 @@ const Main: FunctionComponent = () => {
             ? ""
             : firstOperandDisplay +
               " " +
-              selectOperator +
+              operator +
               " " }
         </div>
 
