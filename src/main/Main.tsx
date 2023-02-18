@@ -28,18 +28,10 @@ const Main: FunctionComponent = () => {
   const [display, setDisplay] = useState<string>("0");
   const [showResult, setShowResult] = useState<boolean>(false);
 
-  function handleDigits(id: number) {
-    // the screen will show either the result of calculation when showResult is true or
-    // the number being entered when showResult is false. Hence at start showResult is false
-    if (showResult) {
-      setResult(() => 0);
-      setShowResult(() => false);
-    }
-
+  function validateNum(id: number) {
     // display => number to be displayed on the screen. A click on a number button will
     // add another number to the display. display is a string. If length of display exceeds 12
     // maximum digits has been set to 12. Send notification to alert user
-
     if (display.length > 12) {
       return toast.info(`Limit of 12 has been reached `);
     }
@@ -56,6 +48,18 @@ const Main: FunctionComponent = () => {
       setDisplay(() => display + id);
     }
     console.log(display);
+  }
+
+  function handleDigits(id: number) {
+    // the screen will show either the result of calculation when showResult is true or
+    // the number being entered when showResult is false. Hence at start showResult is false
+
+    if (showResult) {
+      setResult(() => 0);
+      setShowResult(() => false);
+    }
+
+    validateNum(id);
     // calc is false at the start, any numbers entered when calc is false will be added to the
     // string display - converted to a number by setFirstOperand. When calc is true - triggered by
     // a click on any of the operators, then the collection of numbers will become secondOperand
@@ -74,7 +78,6 @@ const Main: FunctionComponent = () => {
         setSecondOperandDisplay(() => display + id.toString());
       }
     }
-    // displayStrings(id)
   }
 
   const handleOperations = (id: string) => {
@@ -82,20 +85,24 @@ const Main: FunctionComponent = () => {
     setSelectOperator(() => id);
     setDisplay(() => "");
     setCalc(() => true);
+    setSecondOperand(() => 0);
+    setSecondOperandDisplay(() => "0");
   };
 
   const handleResult = () => {
-    console.log(calc);
+    // make calculations here
+    // set the firstOperand to equal to the value calculated
     if (!showResult) {
       setShowResult((showResult) => !showResult);
     }
+    console.log(result);
     if (calc) {
-      setCalc((calc) => !calc);
       operations();
-      clearCalculations();
+      setCalc(() => !calc);
     } else {
       return;
     }
+    console.log(`result ${result}`);
   };
 
   const handleDecimal = (id: string) => {
@@ -110,6 +117,7 @@ const Main: FunctionComponent = () => {
       }
     }
   };
+
   const handleDelete = () => {
     if (display.length < 1) {
       return;
@@ -178,6 +186,7 @@ const Main: FunctionComponent = () => {
       default:
         break;
     }
+    console.log(`result ${result}`);
   }
 
   const handleKeyDown = ({ keyCode, shiftKey }: KeyboardEvent) => {
@@ -212,7 +221,12 @@ const Main: FunctionComponent = () => {
     return () => document.body.removeEventListener("keydown", handleKeyDown);
   });
 
-  useEffect(() => {}, [display]);
+  useEffect(() => {
+    if (result) {
+      setFirstOperand(() => result);
+      setFirstOperandDisplay(() => result.toString());
+    }
+  }, [result]);
 
   return (
     <main>
@@ -231,8 +245,7 @@ const Main: FunctionComponent = () => {
             : firstOperandDisplay +
               " " +
               selectOperator +
-              " " +
-              secondOperandDisplay}
+              " " }
         </div>
 
         <div className="current" aria-live="polite">
